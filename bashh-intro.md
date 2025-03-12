@@ -617,6 +617,6 @@ These advanced topics are perfect for mastering Bash scripting and taking your s
 ---
 
 
+Example Scripts
 
-By mastering these topics, you'll significantly improve your scripting skills and be able to write more efficient and powerful scripts. Practice each concept with real-world examples to solidify your understanding!
-
+https://github.com/ruanyf/simple-bash-scripts?tab=readme-ov-file
