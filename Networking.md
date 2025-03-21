@@ -2,7 +2,7 @@
 
 ---
 
-# **Basic Networking Concepts for Students**
+# **Basic Networking Concepts for DevOps Engineer**
 
 ## **1. Introduction to Networking**
 A **computer network** is a group of interconnected computers that communicate with each other to share resources, data, and applications. Each device in a network is assigned an **IP address**, which serves as its unique identifier.
