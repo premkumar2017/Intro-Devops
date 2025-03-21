@@ -376,8 +376,85 @@ This diagram illustrates a **Distributed Denial-of-Service (DDoS) attack**, a cy
 🔹 **Deploy a DDoS Mitigation Service (e.g., Cloudflare, Akamai).**  
 🔹 **Monitor Traffic & Detect Anomalies using AI-based security tools.**  
 
+
 ---
 
+![image](https://github.com/user-attachments/assets/da9292bc-1699-4105-93b6-93900d6f42bd)
+
+
+### How DNS Works: From `/etc/hosts` to `resolv.conf` and Top-Level Domains  
+
+DNS (Domain Name System) is responsible for translating human-readable domain names (e.g., `example.com`) into IP addresses that computers use to communicate. Here’s how it works from local configuration files to the global DNS hierarchy:
+
+---
+
+### **1. Local Name Resolution: `/etc/hosts` File**  
+- Before querying external DNS servers, a Linux system first checks the `/etc/hosts` file.
+- This file contains mappings of domain names to IP addresses.
+- Example:
+  ```bash
+  127.0.0.1   localhost
+  192.168.1.10   myserver.local
+  ```
+- If a domain is found in `/etc/hosts`, the system does not query a DNS server.
+
+---
+
+### **2. DNS Resolver and `resolv.conf`**
+- If the requested domain is not found in `/etc/hosts`, the system checks `/etc/resolv.conf` to find which DNS servers to query.
+- This file specifies the nameservers (DNS servers) to be used for domain resolution.
+- Example:
+  ```bash
+  nameserver 8.8.8.8
+  nameserver 1.1.1.1
+  ```
+- The system will query these servers in order until one responds.
+
+---
+
+### **3. Querying the DNS Hierarchy**
+If the domain is not cached locally, the system queries the configured DNS servers. The process follows a hierarchical structure:
+
+#### **a) Root DNS Servers**
+- The request starts at one of the **13 root DNS servers**.
+
+  ![image](https://github.com/user-attachments/assets/cda3d705-c87d-4023-95ed-65f531e8f8d2)
+
+- Root servers direct queries to the relevant **Top-Level Domain (TLD) servers**.
+
+#### **b) Top-Level Domain (TLD) Servers**
+- TLD servers handle domains based on their extensions, such as:
+  - `.com` (commercial) → `com DNS servers`
+  - `.org` (organizations) → `org DNS servers`
+  - `.edu` (education) → `edu DNS servers`
+- The TLD server directs the query to the appropriate domain’s authoritative name server.
+
+#### **c) Authoritative DNS Servers**
+- These servers store specific domain records.
+- Example:
+  - For `amazon.com`, the authoritative DNS server provides the actual IP address.
+  - This information is returned to the client.
+
+---
+
+### **4. Caching and Response**
+- Once the IP is resolved, the system stores it in a **DNS cache** to speed up future queries.
+- Cached results reduce network traffic and response time.
+
+  ![image](https://github.com/user-attachments/assets/55a2246d-7d88-49c4-b798-8f1192e6352b)
+
+
+---
+
+### **Summary of DNS Resolution Flow**
+1. **Check `/etc/hosts`** → If found, use the mapped IP.
+2. **Check `/etc/resolv.conf`** → Identify external DNS servers.
+3. **Query Root DNS Servers** → Directs to the TLD DNS server.
+4. **Query TLD DNS Server** → Directs to authoritative DNS.
+5. **Query Authoritative DNS Server** → Returns the actual IP.
+6. **Cache the result** for future use.
+
+This process ensures efficient and scalable domain resolution across the internet. 🚀
 
 ---
 
