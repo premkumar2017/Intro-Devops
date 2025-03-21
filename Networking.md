@@ -103,28 +103,22 @@ Subnetting divides a large network into smaller networks.
 - Uses IP addresses to route data.
 - Example: Home router connects your LAN to the Internet.
 
+  ![image](https://github.com/user-attachments/assets/dccf643f-642b-4feb-a593-d7e2e021f5b2)
+
+
 ### **Switch**
 - Connects devices within a LAN.
 - Uses MAC addresses to forward data efficiently.
 
-### **Firewall**
-- Security device that filters network traffic.
+  ![image](https://github.com/user-attachments/assets/05777874-065f-43fe-abe8-ba8a824d0399)
 
 ---
 
-## **5. Common Networking Protocols**
-| Protocol | Function |
-|----------|---------|
-| TCP | Reliable, connection-oriented data transfer |
-| UDP | Fast, connectionless data transfer |
-| HTTP/HTTPS | Web browsing |
-| FTP | File transfer |
-| DHCP | Automatically assigns IP addresses |
-| DNS | Resolves domain names to IPs |
+## **5. Subnetting Practice**
 
----
+![image](https://github.com/user-attachments/assets/25973873-65fd-442d-ab9b-3040b06a8e47)
 
-## **6. Subnetting Practice**
+
 ### **Example 1:**
 - Given: **192.168.1.0/26**
 - Subnet Mask: **255.255.255.192**
@@ -160,6 +154,79 @@ Subnetting divides a large network into smaller networks.
 
 
 
+### **7. What Does the Ping Command Do?**  
+
+The **ping** command is a network utility used to test the connectivity between two network devices. It sends ICMP (Internet Control Message Protocol) echo request packets to a specified IP address or hostname and waits for a response. This helps determine:  
+- Whether a device is reachable on the network.  
+- The response time (latency) between the source and destination.  
+- Packet loss, which indicates network issues.  
+
+### **8. What is a NIC (Network Interface Card)?**  
+A **Network Interface Card (NIC)** is a hardware component that enables a computer to connect to a network. It can be wired (Ethernet) or wireless (Wi-Fi).  
+
+#### **Key Features of a NIC:**  
+- Each NIC has a unique **MAC (Media Access Control) address**, which identifies the device on the network.  
+- It allows communication between computers in a **Local Area Network (LAN)** or over the internet.  
+- NICs are commonly used in **desktop computers, laptops, and servers** for network connectivity.  
+
+
+Your definitions of **Public Address** and **Private Address** are mostly correct but could be refined for better clarity and readability. Here’s an improved version:  
+
 ---
 
-This content provides students with a fundamental understanding of networking, including subnetting and host details. Let me know if you need additional explanations or exercises! 🚀
+### **9) Public Address**  
+A **Public IP Address** (also known as an **external address**) is assigned by an **Internet Service Provider (ISP)** and is used to communicate outside the local network. It allows devices to access the internet and be reached from remote locations.  
+
+#### **Key Characteristics:**  
+- **Global Scope** – Public IP addresses are unique and can be accessed over the internet.  
+- **Assigned by ISP** – Internet providers allocate public IP addresses.  
+- **Not Free** – Public IPs are provided by ISPs at a cost.  
+- **Enables Remote Access** – It allows external users to connect to a device or server inside the network (e.g., hosting a home server).  
+
+---
+
+### **10) Private Address**  
+A **Private IP Address** (also known as an **internal address**) is used within a **Local Area Network (LAN)** to communicate between devices. It cannot be accessed directly from the internet and helps maintain network security.  
+
+#### **Key Characteristics:**  
+- **Local Scope** – Only used within a private network (e.g., home or office network).  
+- **Used for LAN Communication** – Enables communication between devices like computers, printers, and smartphones inside a network.  
+- **Free of Cost** – Private IPs do not require ISP allocation and are available for free.  
+- **Not Routed on the Internet** – Traffic from the internet cannot directly reach private IP addresses.  
+- **Finding Private IP Address** – Use the command `ipconfig` (Windows) or `ifconfig` (Linux/macOS) to view the private IP of your device.  
+
+### **11) What is a Proxy Server?**  
+**Ans:** A **proxy server** is an **intermediary** between a user's device and the internet. It forwards requests from clients to web servers and then returns the requested data to the client.  
+
+### **Key Functions of a Proxy Server:**  
+- **Hides the Client's IP Address** – Enhances privacy and security.  
+- **Filters Web Content** – Blocks restricted websites and harmful content.  
+- **Caches Data** – Speeds up web browsing by storing frequently accessed resources.  
+- **Improves Security** – Acts as a firewall by preventing direct connections to potentially harmful sites.  
+- **Provides Anonymity** – Helps users stay anonymous by masking their real IP address.  
+
+
+### **What is a Firewall?**  
+
+A **firewall** is a **network security system** that monitors and controls incoming and outgoing network traffic based on **predefined security rules**. It acts as a **barrier** between a trusted internal network (e.g., a company’s private network) and an untrusted external network (e.g., the internet).  
+
+![image](https://github.com/user-attachments/assets/daf06065-e6d2-4834-9b4f-3995cece334a)
+
+
+### **Functions of a Firewall:**  
+✅ **Monitors network traffic** – Inspects data packets entering or leaving a network.  
+✅ **Blocks unauthorized access** – Prevents hackers and malicious traffic from entering the system.  
+✅ **Implements security policies** – Enforces rules to allow or deny specific types of traffic.  
+✅ **Prevents malware attacks** – Detects and blocks suspicious activity.  
+✅ **Filters content** – Restricts access to certain websites or applications.  
+
+### **Types of Firewalls:**  
+1️⃣ **Packet Filtering Firewall (Layer 4)** – Works at the network and transport layers, filtering packets based on IP addresses, ports, and protocols.  
+2️⃣ **Stateful Inspection Firewall** – Monitors active connections and makes decisions based on connection states.  
+3️⃣ **Proxy Firewall (Layer 5 - Application Gateway)** – Acts as an intermediary between users and the internet, filtering requests based on content.  
+4️⃣ **Next-Generation Firewall (NGFW)** – Uses advanced features like deep packet inspection, intrusion detection, and threat intelligence.  
+
+
+
+---
+
