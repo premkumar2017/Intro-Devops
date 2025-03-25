@@ -153,6 +153,98 @@ Subnetting divides a large network into smaller networks.
    - Suitable for large and complex networks.  
 
 
+### **What is a Protocol? **  
+
+● A system that allows two parties to communicate
+● A protocol is designed with a set of properties
+● Depending on the purpose of the protocol
+● TCP, UDP, HTTP, gRPC, FTP
+
+## Protocol Properties
+
+Here's a detailed breakdown of each networking concept with examples:
+
+---
+
+### **1. Data Format**
+Defines how data is structured before transmission.
+
+#### **a. Text-based Formats**
+- **Plain Text**: Simple human-readable format.
+  - Example: Sending an email using SMTP.
+  
+- **JSON (JavaScript Object Notation)**: Lightweight data-interchange format, widely used in APIs.
+  - Example: REST API responses from a weather service (`{"temperature": 30, "unit": "Celsius"}`).
+
+- **XML (Extensible Markup Language)**: Used for structured data exchange.
+  - Example: SOAP web services (`<weather><temperature>30</temperature><unit>Celsius</unit></weather>`).
+
+#### **b. Binary Formats**
+- **Protocol Buffers (Protobuf)**: Compact and efficient data serialization format developed by Google.
+  - Example: gRPC communication between microservices.
+
+- **RESP (Redis Serialization Protocol)**: Used by Redis for data exchange.
+  - Example: Sending a Redis command: `SET key value`.
+
+- **h2 (HTTP/2) & h3 (HTTP/3)**: Use binary framing for efficient web communication.
+  - Example: Faster loading of web pages using HTTP/2 multiplexing.
+
+---
+
+### **2. Transfer Mode**
+Defines how data is transferred over the network.
+
+#### **a. Message-based Transfer**
+- **UDP (User Datagram Protocol)**: Lightweight, connectionless communication.
+  - Example: Video streaming services like YouTube Live or VoIP (Skype, Zoom).
+
+- **HTTP (Hypertext Transfer Protocol)**: Request-response protocol for web communication.
+  - Example: A user requesting a webpage (`GET /index.html` from a browser).
+
+#### **b. Stream-based Transfer**
+- **TCP (Transmission Control Protocol)**: Reliable, ordered, and error-checked streaming.
+  - Example: A file download using FTP (File Transfer Protocol).
+
+- **WebRTC (Web Real-Time Communication)**: Peer-to-peer streaming of audio/video.
+  - Example: Google Meet video calls.
+
+---
+
+### **3. Addressing System**
+Defines how devices are identified in the network.
+
+- **DNS Name**: Human-readable domain names resolved to IP addresses.
+  - Example: `www.google.com` → `142.250.183.78`.
+
+- **IP Address**: Unique identifier assigned to devices on a network.
+  - Example: `192.168.1.1` for a router in a home network.
+
+- **MAC Address**: Unique hardware address of a network device.
+  - Example: `00:1A:2B:3C:4D:5E` for a laptop’s Wi-Fi adapter.
+
+---
+
+### **4. Directionality**
+Defines how data flows in communication.
+
+#### **a. Bidirectional Communication**
+- **TCP (Transmission Control Protocol)**: Allows full two-way communication.
+  - Example: SSH remote login, where both client and server can send data.
+
+#### **b. Unidirectional Communication**
+- **HTTP (Hypertext Transfer Protocol)**: One-way request-response.
+  - Example: A user submits a search query on Google, and Google returns results.
+
+#### **c. Full-Duplex vs Half-Duplex**
+- **Full Duplex**: Data can be sent and received simultaneously.
+  - Example: A telephone call where both parties can talk at the same time.
+
+- **Half Duplex**: Data can be sent in only one direction at a time.
+  - Example: Walkie-talkies, where one person talks while the other listens.
+
+---
+
+Let me know if you need more details! 🚀
 
 ### **7. What Does the Ping Command Do?**  
 
