@@ -894,4 +894,40 @@ Whenever you visit a website like **Amazon**, your web browser (Chrome, Firefox,
 
 ![image](https://github.com/user-attachments/assets/3e8a3438-fa79-4e4f-93a1-cbde103f5a3e)
 
+### ** What happens while running below Command **
 
+```
+curl -vk https://www.jeeviacademy.com
+
+```
+
+1️⃣ **Client Initiates Request:**  
+   - A browser (Chrome, Firefox) or an application (Python, JavaScript) **sends an HTTP request**.  
+   - Example:  
+     ```
+     GET /index.html HTTP/1.1
+     Host: jeeviacademy.com
+     ```
+
+2️⃣ **Server Processes Request:**  
+   - The web server (Apache, Nginx, Node.js, etc.) **receives the request** and processes it.  
+   - It may retrieve **static content (HTML, CSS, JS)** or interact with a **backend (database, API, etc.)**.
+
+3️⃣ **Server Sends Response:**  
+   - The server **returns an HTTP response** containing the requested data.  
+   - Example Response:  
+     ```
+     HTTP/1.1 200 OK
+     Content-Type: text/html
+     Content-Length: 1234
+
+     <html>
+       <body>Hello, World!</body>
+     </html>
+     ```
+
+4️⃣ **Client Renders Response:**  
+   - The client processes the response (renders an HTML page or processes JSON data).  
+   - If needed, it **sends further requests** (e.g., for CSS, images, API calls).  
+
+---
