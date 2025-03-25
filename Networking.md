@@ -894,7 +894,7 @@ Whenever you visit a website like **Amazon**, your web browser (Chrome, Firefox,
 
 ![image](https://github.com/user-attachments/assets/3e8a3438-fa79-4e4f-93a1-cbde103f5a3e)
 
-### ** What happens while running below Command **
+### **What happens while running below Command**
 
 ```
 curl -vk https://www.jeeviacademy.com
@@ -922,8 +922,7 @@ curl -vk https://www.jeeviacademy.com
      Content-Length: 1234
 
      <html>
-       <body>Hello, World!</body>
-     </html>
+     
      ```
 
 4️⃣ **Client Renders Response:**  
