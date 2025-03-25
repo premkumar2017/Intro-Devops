@@ -782,7 +782,8 @@ If the domain is not cached locally, the system queries the configured DNS serve
   - **RSA vulnerabilities** (Less forward secrecy).
   - **More attack surface (e.g., BEAST, POODLE attacks)**.
   - 
-  ![image](https://github.com/user-attachments/assets/77272ace-3e85-4f04-927b-53da865baaa4)
+![image](https://github.com/user-attachments/assets/35eb642c-26ea-4016-b727-a68d9c4c9cd1)
+
 
 
 ---
@@ -798,6 +799,9 @@ If the domain is not cached locally, the system queries the configured DNS serve
   - Provides **Forward Secrecy** (A past session remains secure even if a key is stolen).
 - **Example Usage:**  
   - **TLS with ephemeral Diffie-Hellman (DHE) for secure HTTPS connections**.
+ 
+    ![image](https://github.com/user-attachments/assets/202f6aa1-151d-43cf-96ea-5dfd9f67e3a1)
+
 
 ---
 
@@ -813,6 +817,9 @@ If the domain is not cached locally, the system queries the configured DNS serve
 
 ✅ **Zero Round Trip Time (0-RTT) Resumption**:  
 - Allows **faster reconnections** by remembering previous sessions.  
+
+
+![image](https://github.com/user-attachments/assets/f94be0a9-9612-4eb7-8e53-5636c82fb356)
 
 ---
 
