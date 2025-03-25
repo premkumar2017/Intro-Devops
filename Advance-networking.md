@@ -99,4 +99,4 @@ HTTP/2 is a major improvement over HTTP/1.1, designed to solve its performance b
 ✅ **Most modern browsers and web servers support HTTP/2.**  
 ✅ **Major sites like Google, Facebook, and YouTube already use HTTP/2.**  
 
-Would you like a deep dive into **HTTP/3**, which improves even further with QUIC? 😊
+
