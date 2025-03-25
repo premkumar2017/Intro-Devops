@@ -930,3 +930,20 @@ curl -vk https://www.jeeviacademy.com
    - If needed, it **sends further requests** (e.g., for CSS, images, API calls).  
 
 ---
+### **🔹 Web Server Examples**
+| **Web Server** | **Type** | **Use Case** |
+|---------------|---------|-------------|
+| **Apache HTTP Server (IIS, Nginx, etc.)** | Static | Hosting websites, HTML, CSS, JS |
+| **Tomcat** | Dynamic | Java-based web apps (JSP, Servlets) |
+| **Node.js (Express.js)** | Dynamic | JavaScript-based APIs and web apps |
+| **Django, Flask, Tornado (Python)** | Dynamic | Python-based web APIs |
+
+---
+
+### **🔹 Types of HTTP Communication**
+| **Communication Type** | **Description** | **Example** |
+|------------------------|---------------|------------|
+| **Synchronous (Request-Response)** | Client waits for a response | Browser requesting a webpage |
+| **Asynchronous (AJAX, WebSockets)** | Client continues execution while waiting | Real-time chat app |
+
+---
