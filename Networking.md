@@ -300,11 +300,11 @@ Often implements business logic beyond simple forwarding
 
 - API Gateways:
 
-Front door for external API consumers
+- Front door for external API consumers
 
-Handles versioning, rate limiting, authentication
+- Handles versioning, rate limiting, authentication
 
-Example: Amazon API Gateway, Kong
+- Example: Amazon API Gateway, Kong
 
 
 ---
