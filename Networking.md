@@ -276,17 +276,36 @@ Does not retain session state; each request is treated independently.
 ---
 
 ## **2. Routing**
-Determines how data is forwarded between networks.
+
+Operates at network layer (Layer 3)
+
+Makes forwarding decisions based on IP addresses
+
+- **Example**: Internet routers directing packets
 
 ### **a. Proxies**
 Acts as an intermediary between clients and servers.
+Operates at application layer (Layer 7)
 
 - **Example**: A company using an HTTP proxy to filter and monitor employee web traffic.
 
 ### **b. Gateways**
 Translates communication between different network protocols.
+Specialized type of proxy with protocol translation capabilities
+Often implements business logic beyond simple forwarding
 
 - **Example**: An API gateway that translates HTTP REST requests into gRPC calls for microservices.
+
+- ![image](https://github.com/user-attachments/assets/51ea10fd-04bc-493a-a3f2-011dd3431def)
+
+- API Gateways:
+
+Front door for external API consumers
+
+Handles versioning, rate limiting, authentication
+
+Example: Amazon API Gateway, Kong
+
 
 ---
 
