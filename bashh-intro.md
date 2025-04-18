@@ -160,6 +160,12 @@ example.txt exists.
 Loops allow you to repeat a set of commands multiple times.
 
 ### `for` Loop Example:
+
+✅ Best for:
+Looping over a list of items, files, arguments, or numeric ranges
+
+Repeating a task for each element in a list
+
 ```bash
 #!/bin/bash
 
@@ -177,6 +183,13 @@ I like cherry
 ```
 
 ### `while` Loop Example:
+✅ Best for:
+Waiting for a condition to become false (e.g., service to stop, file to exist)
+
+Reading input line-by-line or monitoring logs
+
+Long-running conditions or checks
+
 ```bash
 #!/bin/bash
 
@@ -198,6 +211,12 @@ Count: 5
 ```
 
 ### `until` Loop Example:
+
+✅ Best for:
+Waiting for a success state (the opposite of while)
+
+Running commands until something succeeds
+
 ```bash
 #!/bin/bash
 
