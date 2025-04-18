@@ -619,7 +619,8 @@ print(square(5))  # Output: 25
 ---
 
 ## **2. Modules**
-A module is a Python file containing reusable code (functions, variables, classes).
+A module is a file containing Python definitions and statements (e.g., functions, classes,
+or variables) that can be imported and used in other Python scripts
 
 ### **Creating a Module**
 Save as `mymodule.py`:
@@ -657,7 +658,9 @@ print(random.randint(1, 10))  # Random number between 1-10
 ---
 
 ## **3. Packages**
-Packages are collections of modules in directories.
+A package is a collection of Python modules organized in directories. Each
+package contains an __init__.py file, which signifies that the directory is a Python
+package. Packages help you organize related modules into a hierarchy.
 
 ### **Creating a Package**
 ```
