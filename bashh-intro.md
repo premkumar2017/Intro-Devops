@@ -751,6 +751,6 @@ Let me know if you want a version that includes flags (like `-f`, `-d`, etc.) wi
 ---
 
 
-Example Scripts
+Example Scripts. Devops Student can use the below link to practice the shell scripting.
 
 https://github.com/ruanyf/simple-bash-scripts?tab=readme-ov-file
