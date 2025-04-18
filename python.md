@@ -873,6 +873,154 @@ else:
 print(f"Connecting to {db_host}")
 ```
 
+# **Python Operators**
+
+Operators are special symbols in Python that perform operations on variables and values. Here's a comprehensive overview of all operator types with examples:
+
+## **1. Arithmetic Operators**
+Used for mathematical calculations:
+
+| Operator | Name           | Example   | Result |
+|----------|----------------|-----------|--------|
+| `+`      | Addition       | `5 + 2`   | 7      |
+| `-`      | Subtraction    | `5 - 2`   | 3      |
+| `*`      | Multiplication | `5 * 2`   | 10     |
+| `/`      | Division       | `5 / 2`   | 2.5    |
+| `%`      | Modulus        | `5 % 2`   | 1      |
+| `**`     | Exponentiation | `5 ** 2`  | 25     |
+| `//`     | Floor Division | `5 // 2`  | 2      |
+
+```python
+print(10 / 3)   # 3.333... (float division)
+print(10 // 3)  # 3 (integer division)
+```
+
+## **2. Comparison Operators**
+Return `True` or `False` by comparing values:
+
+| Operator | Name                  | Example   | Result |
+|----------|-----------------------|-----------|--------|
+| `==`     | Equal                 | `5 == 2`  | False  |
+| `!=`     | Not equal             | `5 != 2`  | True   |
+| `>`      | Greater than          | `5 > 2`   | True   |
+| `<`      | Less than             | `5 < 2`   | False  |
+| `>=`     | Greater than or equal | `5 >= 5`  | True   |
+| `<=`     | Less than or equal    | `5 <= 2`  | False  |
+
+```python
+age = 18
+print(age >= 18)  # True (eligible to vote)
+```
+
+## **3. Logical Operators**
+Combine conditional statements:
+
+| Operator | Description                          | Example                     |
+|----------|--------------------------------------|----------------------------|
+| `and`    | True if both are true                | `x > 5 and x < 10`          |
+| `or`     | True if at least one is true         | `x > 5 or x < 4`            |
+| `not`    | Reverse the result                   | `not(x > 5)`                |
+
+```python
+balance = 1500
+withdraw = 1200
+print(balance >= withdraw and withdraw <= 1000)  # False
+```
+
+## **4. Assignment Operators**
+Assign values to variables:
+
+| Operator | Example    | Equivalent to |
+|----------|------------|---------------|
+| `=`      | `x = 5`    | `x = 5`       |
+| `+=`     | `x += 3`   | `x = x + 3`   |
+| `-=`     | `x -= 3`   | `x = x - 3`   |
+| `*=`     | `x *= 3`   | `x = x * 3`   |
+| `/=`     | `x /= 3`   | `x = x / 3`   |
+| `%=`     | `x %= 3`   | `x = x % 3`   |
+| `**=`    | `x **= 3`  | `x = x ** 3`  |
+| `//=`    | `x //= 3`  | `x = x // 3`  |
+
+```python
+counter = 10
+counter += 1  # Increment by 1
+print(counter)  # 11
+```
+
+## **5. Identity Operators**
+Compare object memory locations:
+
+| Operator | Description              | Example       |
+|----------|--------------------------|---------------|
+| `is`     | True if same object      | `x is y`      |
+| `is not` | True if not same object  | `x is not y`  |
+
+```python
+a = [1, 2, 3]
+b = a
+c = [1, 2, 3]
+
+print(a is b)     # True (same object)
+print(a is c)     # False (different objects)
+print(a == c)     # True (same values)
+```
+
+## **6. Membership Operators**
+Test if value exists in sequence:
+
+| Operator | Description                    | Example       |
+|----------|--------------------------------|---------------|
+| `in`     | True if value exists           | `x in y`      |
+| `not in` | True if value doesn't exist    | `x not in y`  |
+
+```python
+fruits = ["apple", "banana"]
+print("banana" in fruits)    # True
+print("orange" not in fruits) # True
+```
+
+## **7. Bitwise Operators**
+Work on binary representations:
+
+| Operator | Name            | Example   | Result (Binary) |
+|----------|-----------------|-----------|-----------------|
+| `&`      | AND             | `5 & 3`   | `0101 & 0011 = 0001` (1) |
+| `\|`     | OR              | `5 \| 3`  | `0101 \| 0011 = 0111` (7) |
+| `^`      | XOR             | `5 ^ 3`   | `0101 ^ 0011 = 0110` (6) |
+| `~`      | NOT             | `~5`      | Inverts bits     |
+| `<<`     | Left shift      | `5 << 1`  | `0101 << 1 = 1010` (10) |
+| `>>`     | Right shift     | `5 >> 1`  | `0101 >> 1 = 0010` (2) |
+
+```python
+print(5 & 3)   # 1
+print(5 | 3)   # 7
+print(5 << 1)  # 10 (multiply by 2)
+print(5 >> 1)  # 2 (divide by 2)
+```
+
+## **Operator Precedence**
+Order of operations (highest to lowest):
+1. `()` (Parentheses)
+2. `**` (Exponentiation)
+3. `~ + -` (Bitwise NOT, Unary plus/minus)
+4. `* / % //` (Multiplication, Division, etc.)
+5. `+ -` (Addition, Subtraction)
+6. `<< >>` (Bit shifts)
+7. `&` (Bitwise AND)
+8. `^` (Bitwise XOR)
+9. `|` (Bitwise OR)
+10. `== != > < >= <=` (Comparisons)
+11. `is`, `is not`, `in`, `not in` (Identity/Membership)
+12. `not` (Logical NOT)
+13. `and` (Logical AND)
+14. `or` (Logical OR)
+
+```python
+result = 5 + 3 * 2  # 11 (not 16)
+print(result)
+```
+
+
 Run with:
 ```bash
 python script.py --env prod
