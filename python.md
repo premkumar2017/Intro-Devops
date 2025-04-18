@@ -1025,3 +1025,283 @@ Run with:
 ```bash
 python script.py --env prod
 ``` 
+# **Condition Handling in Python**
+
+Condition handling allows your programs to make decisions and handle different scenarios. Python provides several ways to manage conditions:
+
+## **1. Basic Conditional Statements (`if`, `elif`, `else`)**
+
+```python
+age = 18
+
+if age < 13:
+    print("Child")
+elif age < 18:
+    print("Teenager")
+else:
+    print("Adult")  # This will execute
+```
+
+### **Key Features:**
+- `if`: First condition to check
+- `elif`: Additional conditions (optional, multiple allowed)
+- `else`: Final fallback (optional)
+
+## **2. Ternary Operator (Conditional Expression)**
+
+A compact way to write simple `if-else` statements:
+
+```python
+# Syntax: value_if_true if condition else value_if_false
+status = "Adult" if age >= 18 else "Minor"
+print(status)  # Output: "Adult"
+```
+
+## **3. Handling Multiple Conditions**
+
+Combine conditions using logical operators (`and`, `or`, `not`):
+
+```python
+temperature = 25
+is_summer = True
+
+if temperature > 30 or (is_summer and temperature > 25):
+    print("It's hot!")
+elif not is_summer and temperature < 10:
+    print("It's cold!")
+else:
+    print("Pleasant weather")
+```
+
+## **4. Truthy and Falsy Values**
+
+Python evaluates non-boolean values in conditions:
+- **Falsy**: `False`, `0`, `""`, `None`, `[]`, `{}`, `()`
+- **Truthy**: Everything else
+
+```python
+name = ""
+
+if name:  # Falsy check
+    print(f"Hello, {name}")
+else:
+    print("Name is empty")  # This executes
+```
+
+## **5. Exception Handling (`try`, `except`, `finally`)**
+
+Handle runtime errors gracefully:
+
+```python
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except (TypeError, ValueError) as e:
+    print(f"Error: {e}")
+else:
+    print("No errors occurred")  # Runs if no exception
+finally:
+    print("This always executes")  # Cleanup code
+```
+
+### **Common Exception Types:**
+- `ZeroDivisionError`: Division by zero
+- `TypeError`: Incorrect type operation
+- `ValueError`: Invalid value
+- `FileNotFoundError`: Missing file
+- `KeyError`: Missing dictionary key
+- `IndexError`: List index out of range
+
+## **6. Raising Exceptions (`raise`)**
+
+Forcefully trigger exceptions when needed:
+
+```python
+def validate_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative")
+    elif age < 18:
+        print("Not eligible")
+    else:
+        print("Eligible")
+
+try:
+    validate_age(-5)  # Raises ValueError
+except ValueError as e:
+    print(e)  # Output: "Age cannot be negative"
+```
+
+## **7. Using `assert` for Debugging**
+
+Check conditions during development (disabled with `-O` flag):
+
+```python
+def calculate_discount(price, discount):
+    assert 0 <= discount <= 1, "Discount must be between 0 and 1"
+    return price * (1 - discount)
+
+# Fails if discount is invalid
+print(calculate_discount(100, 0.2))  # 80.0
+```
+
+## **8. Pattern Matching (Python 3.10+)**
+
+Advanced conditional logic with structural pattern matching:
+
+```python
+def handle_response(response):
+    match response:
+        case 200:
+            print("Success")
+        case 404:
+            print("Not found")
+        case 500 | 503:  # Multiple values
+            print("Server error")
+        case _:  # Default case
+            print("Unknown status code")
+
+handle_response(404)  # Output: "Not found"
+```
+
+## **Best Practices**
+1. **Keep conditions simple** - Break complex logic into smaller checks
+2. **Use specific exceptions** - Catch only what you can handle
+3. **Avoid empty except blocks** - Always handle or log errors
+4. **Prefer `try/except` over `if/else`** for expected error cases
+5. **Document your conditions** - Especially complex business rules
+
+```python
+# Good practice example
+def process_data(data):
+    """Process input data with validation."""
+    if not data:  # Explicit check
+        raise ValueError("No data provided")
+    
+    try:
+        return complex_operation(data)
+    except DatabaseError as e:
+        log_error(e)
+        return None
+```
+# **Lists and Tuples in Python**
+
+## **1. Lists (Mutable Sequences)**
+Lists are ordered, changeable collections that allow duplicate elements.
+
+### **Creating Lists**
+```python
+fruits = ["apple", "banana", "cherry"]  # Using square brackets
+numbers = list((1, 2, 3))              # Using list() constructor
+mixed = [1, "hello", True, 3.14]       # Can hold different types
+```
+
+### **List Operations**
+| Operation | Example | Result |
+|-----------|---------|--------|
+| Access | `fruits[1]` | `"banana"` |
+| Slice | `fruits[1:3]` | `["banana", "cherry"]` |
+| Length | `len(fruits)` | `3` |
+| Add item | `fruits.append("orange")` | `["apple", "banana", "cherry", "orange"]` |
+| Insert | `fruits.insert(1, "mango")` | `["apple", "mango", "banana", "cherry"]` |
+| Remove | `fruits.remove("banana")` | `["apple", "cherry"]` |
+| Pop | `fruits.pop(1)` | Removes and returns `"banana"` |
+| Concatenate | `[1, 2] + [3, 4]` | `[1, 2, 3, 4]` |
+| Repeat | `[0] * 3` | `[0, 0, 0]` |
+| Check existence | `"apple" in fruits` | `True` |
+
+### **List Methods**
+```python
+nums = [5, 2, 8, 1]
+nums.sort()                # [1, 2, 5, 8]
+nums.reverse()             # [8, 5, 2, 1]
+nums_copy = nums.copy()    # Creates shallow copy
+nums.clear()               # Empties the list
+```
+
+### **List Comprehensions**
+```python
+squares = [x**2 for x in range(5)]  # [0, 1, 4, 9, 16]
+evens = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]
+```
+
+---
+
+## **2. Tuples (Immutable Sequences)**
+Tuples are ordered, unchangeable collections that allow duplicate elements.
+
+### **Creating Tuples**
+```python
+colors = ("red", "green", "blue")  # Using parentheses
+point = tuple((3, 4))             # Using tuple() constructor
+single = ("hello",)               # Single-element tuple (note comma)
+```
+
+### **Tuple Operations**
+| Operation | Example | Result |
+|-----------|---------|--------|
+| Access | `colors[1]` | `"green"` |
+| Slice | `colors[1:3]` | `("green", "blue")` |
+| Length | `len(colors)` | `3` |
+| Concatenate | `(1, 2) + (3, 4)` | `(1, 2, 3, 4)` |
+| Repeat | `(0,) * 3` | `(0, 0, 0)` |
+| Check existence | `"red" in colors` | `True` |
+
+### **Tuple Methods**
+```python
+index = colors.index("green")  # Returns 1
+count = colors.count("red")    # Returns 1
+```
+
+### **When to Use Tuples**
+- When you need an immutable sequence
+- For fixed collections (days of week, RGB colors)
+- As dictionary keys (lists can't be keys)
+- For function return values (multiple returns)
+
+---
+
+## **Key Differences**
+| Feature | List | Tuple |
+|---------|------|-------|
+| Mutability | Mutable (can change) | Immutable (can't change) |
+| Syntax | `[ ]` | `( )` |
+| Performance | Slightly slower | Faster |
+| Methods | Many (append, remove, etc.) | Few (count, index) |
+| Use Case | Dynamic data | Fixed data |
+
+---
+
+## **Common Patterns**
+### **Unpacking**
+```python
+# Lists
+x, y, z = [1, 2, 3]
+
+# Tuples
+name, age = ("Alice", 25)
+```
+
+### **Converting Between Types**
+```python
+tuple_from_list = tuple([1, 2, 3])  # (1, 2, 3)
+list_from_tuple = list(("a", "b"))  # ["a", "b"]
+```
+
+### **Nested Structures**
+```python
+# List of tuples
+coordinates = [(1, 2), (3, 4), (5, 6)]
+
+# Tuple of lists
+mixed = ([1, 2], ["a", "b"])
+```
+
+---
+
+## **Best Practices**
+1. **Use lists** when you need to modify the collection
+2. **Use tuples** for fixed data that shouldn't change
+3. **Prefer tuples** for heterogeneous data (different types)
+4. **Use lists** for homogeneous data (same types)
+5. **Consider tuples** when you need dictionary keys
