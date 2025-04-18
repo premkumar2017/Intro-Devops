@@ -713,3 +713,167 @@ pip install numpy pandas
    - Use `__init__.py` for initialization
    - Follow Python naming conventions
 
+
+# **Command-Line Arguments & Environment Variables in Python**
+
+## **1. Command-Line Arguments (CLI)**
+
+Command Line Arguments in Python allow a user to provide input to a Python script
+when it is executed from the command line. This is useful for passing options, filenames,
+or parameters to scripts at runtime.
+In Python, command line arguments are stored in the sys.argv list, provided by the sys
+module.
+Using sys.argv
+The sys.argv list contains the arguments passed to the script:
+➢ sys.argv[0] is the name of the script itself.
+➢ sys.argv[1], sys.argv[2], etc., represent the arguments passed to the script.
+
+### **Using `sys.argv` (Basic)**
+```python
+import sys
+
+# Example: python script.py arg1 arg2
+print("Script name:", sys.argv[0])  # script.py
+print("Arguments:", sys.argv[1:])   # ['arg1', 'arg2']
+```
+
+### **Using `argparse` (Recommended)**
+More powerful argument parsing:
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('integers', metavar='N', type=int, nargs='+',
+                    help='an integer for the accumulator')
+parser.add_argument('--sum', dest='accumulate', action='store_const',
+                    const=sum, default=max,
+                    help='sum the integers (default: find the max)')
+
+args = parser.parse_args()
+print(args.accumulate(args.integers))
+```
+Run with:
+```bash
+python script.py 1 2 3 4 --sum  # Output: 10
+python script.py 1 2 3 4        # Output: 4 (default max)
+```
+
+### **Using `click` (For Complex CLI Apps)**
+```python
+import click
+
+@click.command()
+@click.option('--count', default=1, help='Number of greetings.')
+@click.option('--name', prompt='Your name',
+              help='The person to greet.')
+def hello(count, name):
+    """Simple program that greets NAME for a total of COUNT times."""
+    for _ in range(count):
+        click.echo(f"Hello, {name}!")
+
+if __name__ == '__main__':
+    hello()
+```
+
+---
+
+## **2. Environment Variables**
+
+Environment variables are dynamic variables maintained by the operating system that
+can affect the way running processes behave. They are often used for configuration
+settings, like database credentials, API keys, or system paths, and provide a way to pass
+information into a program without hardcoding it
+
+- In Python, environment variables can be accessed using the os module.
+- You can use the os.environ dictionary to access environment variables.
+
+### **Accessing Environment Variables**
+```python
+import os
+
+# Get an environment variable
+db_host = os.getenv('DB_HOST', 'localhost')  # 2nd arg is default
+
+# Get all environment variables
+print(os.environ)  # Dictionary of all env vars
+```
+
+### **Setting Environment Variables**
+
+#### **Temporarily in Python**
+```python
+import os
+os.environ['API_KEY'] = '12345'  # Only affects current process
+```
+
+#### **Permanently (System-Wide)**
+- **Linux/macOS**: Add to `~/.bashrc` or `~/.zshrc`
+  ```bash
+  export DB_HOST="localhost"
+  export DB_PORT="5432"
+  ```
+- **Windows**: Use System Properties or PowerShell
+  ```powershell
+  [Environment]::SetEnvironmentVariable("DB_HOST", "localhost", "User")
+  ```
+
+### **Using `.env` Files (Recommended for Development)**
+1. Install python-dotenv:
+   ```bash
+   pip install python-dotenv
+   ```
+2. Create `.env` file:
+   ```ini
+   DB_HOST=localhost
+   DB_PORT=5432
+   SECRET_KEY=supersecret
+   ```
+3. Load in Python:
+   ```python
+   from dotenv import load_dotenv
+   load_dotenv()  # Loads variables from .env
+
+   db_host = os.getenv('DB_HOST')
+   ```
+
+---
+
+## **Best Practices**
+1. **For CLI Arguments**:
+   - Use `argparse` for simple scripts
+   - Use `click` for complex CLI applications
+   - Always provide help messages
+
+2. **For Environment Variables**:
+   - Never commit `.env` files to version control
+   - Use `python-dotenv` for development
+   - For production, set vars in deployment environment
+
+3. **Security**:
+   - Keep sensitive data (API keys, passwords) in env vars
+   - Never hardcode secrets in your code
+
+## **Example: Combining Both**
+```python
+import os
+import argparse
+from dotenv import load_dotenv
+
+load_dotenv()
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--env', choices=['dev', 'prod'], default='dev')
+args = parser.parse_args()
+
+if args.env == 'prod':
+    db_host = os.getenv('PROD_DB_HOST')
+else:
+    db_host = os.getenv('DEV_DB_HOST')
+
+print(f"Connecting to {db_host}")
+```
+
+Run with:
+```bash
+python script.py --env prod
+``` 
