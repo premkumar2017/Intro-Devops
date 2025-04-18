@@ -1305,3 +1305,431 @@ mixed = ([1, 2], ["a", "b"])
 3. **Prefer tuples** for heterogeneous data (different types)
 4. **Use lists** for homogeneous data (same types)
 5. **Consider tuples** when you need dictionary keys
+
+---
+
+# **Loops in Python: `for` and `while`**
+
+## **1. `for` Loops**
+Used for iterating over sequences (lists, tuples, strings, etc.) or a range of numbers.
+
+### **Basic Syntax**
+```python
+for item in sequence:
+    # Code to execute
+```
+
+### **Common Use Cases**
+
+#### **Loop through a list**
+```python
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+```
+Output:
+```
+apple
+banana
+cherry
+```
+
+#### **Loop with range()**
+```python
+for i in range(5):      # 0 to 4
+    print(i)
+
+for i in range(1, 6):   # 1 to 5
+    print(i)
+
+for i in range(0, 10, 2):  # 0 to 8, step 2
+    print(i)
+```
+
+#### **Loop through a string**
+```python
+for char in "Python":
+    print(char)
+```
+
+#### **Loop with index using enumerate()**
+```python
+for index, fruit in enumerate(fruits):
+    print(f"Index {index}: {fruit}")
+```
+
+### **Nested `for` Loops**
+```python
+for i in range(3):
+    for j in range(2):
+        print(f"({i}, {j})")
+```
+
+### **`for-else` Clause**
+The `else` block executes after the loop completes normally (without `break`):
+```python
+for num in [1, 3, 5]:
+    if num % 2 == 0:
+        print("Even found")
+        break
+else:
+    print("No evens found")  # This executes
+```
+
+---
+
+## **2. `while` Loops**
+Execute a block of code as long as a condition is true.
+
+### **Basic Syntax**
+```python
+while condition:
+    # Code to execute
+```
+
+### **Common Use Cases**
+
+#### **Basic counter**
+```python
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+```
+
+#### **User input validation**
+```python
+password = ""
+while password != "secret":
+    password = input("Enter password: ")
+print("Access granted!")
+```
+
+#### **Infinite loop with break**
+```python
+while True:
+    user_input = input("Enter 'quit' to exit: ")
+    if user_input.lower() == "quit":
+        break
+    print(f"You entered: {user_input}")
+```
+
+### **`while-else` Clause**
+The `else` block executes if the loop completes normally (without `break`):
+```python
+n = 5
+while n > 0:
+    print(n)
+    n -= 1
+else:
+    print("Countdown complete!")
+```
+
+---
+
+## **Key Differences**
+
+| Feature | `for` Loop | `while` Loop |
+|---------|-----------|-------------|
+| **When to use** | When you know iteration count | When you don't know iteration count |
+| **Initialization** | Automatic | Manual |
+| **Termination** | When sequence ends | When condition becomes false |
+| **Common uses** | Lists, ranges, strings | User input, game loops |
+
+---
+
+## **Loop Control Statements**
+
+### **`break`**
+Exit the loop immediately:
+```python
+for num in range(10):
+    if num == 5:
+        break
+    print(num)  # Prints 0-4
+```
+
+### **`continue`**
+Skip to next iteration:
+```python
+for num in range(5):
+    if num == 2:
+        continue
+    print(num)  # Prints 0,1,3,4
+```
+
+### **`pass`**
+Placeholder for empty loops:
+```python
+for item in sequence:
+    pass  # TODO: Implement later
+```
+
+---
+
+## **Best Practices**
+1. Use `for` when iterating over known sequences
+2. Use `while` for conditions that may change unpredictably
+3. Avoid infinite loops (ensure exit condition will be met)
+4. Use meaningful loop variable names (`for user in users` vs `for x in y`)
+5. Consider list comprehensions for simple transformations
+
+```python
+# Instead of:
+squares = []
+for num in range(5):
+    squares.append(num**2)
+
+# Use:
+squares = [num**2 for num in range(5)]
+```
+
+Both loops are essential tools in Python programming - choose the right one based on your specific needs!
+
+Great! You're starting to combine **lists** and **user input**, which is a solid step toward building interactive Python programs. Let's **deep dive** into list exercises with examples to help you really get comfortable with them.
+
+---
+
+## 🧠 Understanding Lists in Python
+
+A **list** is a collection of items that is ordered and changeable. Lists are written with square brackets `[]`.
+
+### ✅ Example:
+```python
+fruits = ["apple", "banana", "cherry"]
+print(fruits[0])  # Output: apple
+```
+
+---
+
+## 🧪 Interactive List Exercises
+
+### 🔹 **1. Create a list from user input**
+Let’s ask the user to enter 5 favorite fruits and store them in a list:
+
+```python
+fruits = []
+for i in range(5):
+    fruit = input(f"Enter fruit {i+1}: ")
+    fruits.append(fruit)
+
+print("Your favorite fruits are:", fruits)
+```
+
+### 🔹 **2. Access and print specific elements**
+```python
+print("First fruit:", fruits[0])
+print("Last fruit:", fruits[-1])
+```
+
+---
+
+### 🔹 **3. Check if an item is in the list**
+```python
+search = input("Enter a fruit to check if it's in your list: ")
+if search in fruits:
+    print(f"Yes, {search} is in your list.")
+else:
+    print(f"No, {search} is not in your list.")
+```
+
+---
+
+### 🔹 **4. Remove an item from the list**
+```python
+remove_item = input("Enter a fruit to remove from your list: ")
+if remove_item in fruits:
+    fruits.remove(remove_item)
+    print(f"{remove_item} has been removed.")
+else:
+    print(f"{remove_item} is not in the list.")
+
+print("Updated list:", fruits)
+```
+
+---
+
+### 🔹 **5. Sort and reverse the list**
+```python
+fruits.sort()
+print("Sorted list:", fruits)
+
+fruits.reverse()
+print("Reversed list:", fruits)
+```
+
+---
+
+### 🧑‍💻 Pro Tip: f-Strings
+In your example:
+```python
+name = input("Enter your name: ")
+print("Hello, {name}!")  # ❌ This will print the text as-is
+```
+
+You should use an `f-string` to insert variables:
+```python
+print(f"Hello, {name}!")  # ✅ This prints the actual value
+```
+
+---
+# **Dictionaries and Sets in Python**
+
+## **1. Dictionaries (dict)**
+Dictionaries are **unordered, mutable** collections of **key-value pairs**.
+
+### **Creating Dictionaries**
+```python
+# Method 1: Curly braces
+person = {"name": "Alice", "age": 25, "city": "New York"}
+
+# Method 2: dict() constructor
+person = dict(name="Alice", age=25, city="New York")
+
+# Method 3: From list of tuples
+person = dict([("name", "Alice"), ("age", 25)])
+```
+
+### **Dictionary Operations**
+| Operation | Example | Description |
+|-----------|---------|-------------|
+| Access | `person["name"]` | Gets value for key ("Alice") |
+| Add/Update | `person["job"] = "Engineer"` | Adds new key-value pair |
+| Remove | `del person["age"]` | Deletes key-value pair |
+| Check Key | `"name" in person` | Returns `True`/`False` |
+| Length | `len(person)` | Number of key-value pairs |
+| Get Keys | `person.keys()` | Returns view of keys |
+| Get Values | `person.values()` | Returns view of values |
+| Get Items | `person.items()` | Returns view of (key, value) pairs |
+
+### **Dictionary Methods**
+```python
+person = {"name": "Alice", "age": 25}
+
+# Get value (with default)
+age = person.get("age", 0)  # Returns 25 if key exists, else 0
+
+# Remove and return value
+job = person.pop("job", None)  # Returns None if key doesn't exist
+
+# Update dictionary
+person.update({"age": 26, "city": "Boston"})
+
+# Clear dictionary
+person.clear()
+```
+
+### **Dictionary Use Cases**
+- Storing related attributes (user profiles, configurations)
+- Fast lookups by key (O(1) time complexity)
+- Counting occurrences (word frequency)
+- JSON-like data structures
+
+```python
+# Counting word frequency
+text = "apple banana apple orange banana"
+words = text.split()
+count = {}
+for word in words:
+    count[word] = count.get(word, 0) + 1
+# Result: {'apple': 2, 'banana': 2, 'orange': 1}
+```
+
+---
+
+## **2. Sets (set and frozenset)**
+Sets are **unordered, mutable** collections of **unique elements**.
+
+### **Creating Sets**
+```python
+# Method 1: Curly braces
+fruits = {"apple", "banana", "cherry"}
+
+# Method 2: set() constructor
+fruits = set(["apple", "banana", "cherry"])
+
+# Immutable set
+constants = frozenset([3.14, 2.71, 1.61])
+```
+
+### **Set Operations**
+| Operation | Example | Description |
+|-----------|---------|-------------|
+| Add | `fruits.add("orange")` | Adds element |
+| Remove | `fruits.remove("banana")` | Removes element (raises error if missing) |
+| Discard | `fruits.discard("banana")` | Removes if exists (no error) |
+| Pop | `fruits.pop()` | Removes and returns arbitrary element |
+| Length | `len(fruits)` | Number of elements |
+| Check Membership | `"apple" in fruits` | Returns `True`/`False` |
+
+### **Set Methods**
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+# Union
+print(a | b)  # {1, 2, 3, 4, 5}
+
+# Intersection
+print(a & b)  # {3}
+
+# Difference
+print(a - b)  # {1, 2}
+
+# Symmetric Difference (elements in either but not both)
+print(a ^ b)  # {1, 2, 4, 5}
+```
+
+### **Set Use Cases**
+- Removing duplicates from a list
+- Membership testing (faster than lists)
+- Mathematical set operations (unions, intersections)
+- Finding unique elements
+
+```python
+# Remove duplicates
+numbers = [1, 2, 2, 3, 3, 3]
+unique = set(numbers)  # {1, 2, 3}
+
+# Fast membership testing
+if "apple" in fruits:  # Faster than list for large collections
+    print("Found!")
+```
+
+---
+
+## **Key Differences**
+
+| Feature | Dictionary | Set |
+|---------|-----------|-----|
+| **Elements** | Key-value pairs | Unique values |
+| **Order** | Unordered (Python 3.7+ preserves insertion order) | Unordered |
+| **Mutability** | Mutable | Mutable (except frozenset) |
+| **Syntax** | `{key: value}` | `{value}` or `set()` |
+| **Use Case** | Associative data storage | Unique collection, membership tests |
+
+---
+
+## **Best Practices**
+1. **Dictionaries**:
+   - Use descriptive keys
+   - Handle missing keys with `.get()` or `try/except`
+   - Use dictionary comprehensions for transformations
+
+```python
+# Dictionary comprehension
+squares = {x: x**2 for x in range(5)}  # {0: 0, 1: 1, 2: 4, ...}
+```
+
+2. **Sets**:
+   - Convert lists to sets to remove duplicates
+   - Use for fast membership testing
+   - Leverage set operations for comparisons
+
+```python
+# Finding common elements
+list1 = [1, 2, 3, 4]
+list2 = [3, 4, 5, 6]
+common = set(list1) & set(list2)  # {3, 4}
+```
+
