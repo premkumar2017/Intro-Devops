@@ -27,6 +27,27 @@ docker rm $(docker ps -aq)                     # Remove all containers
 docker top <container_name>                    # View running processes
 ```
 
+### 🔹 Working with Volumes
+```bash
+• cd /opt
+• mkdir data
+• cd data
+• docker run -d -v /opt/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=db_pass123 -p 3307:3306 --name mysql2 mysql
+• docker exec mysql2 mysql -pdb_pass123 -e 'show databases'
+• docker exec mysql2 mysql -pdb_pass123 -e 'use mysql;show tables'
+• docker exec mysql2 mysql -pdb_pass123 -e 'create database sat'
+• docker exec mysql2 mysql -pdb_pass123 -e 'show databases'
+• docker exec mysql2 mysql -pdb_pass123 -e 'use sat;show tables'
+• docker exec mysql2 mysql -pdb_pass123 -e 'use sat;create table student (name VARCHAR(30),age TINYINT,country TEXT)'
+• docker exec mysql2 mysql -pdb_pass123 -e 'use sat;describe student‘
+• docker exec mysql2 mysql -pdb_pass123 -e 'use sat;insert into student(name,age,country) values ("satheya",44,"singapore")'
+• docker exec mysql2 mysql -pdb_pass123 -e 'use sat;insert into student(name,age,country) values ("satheyakumaar",44,"india")'
+• docker exec mysql2 mysql -pdb_pass123 -e 'use sat;select * from student'
+• docker stop mysql2
+• docker run -d -v /opt/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=db_pass123 -p 3308:3306 --name mysql3 mysql
+• docker exec mysql3 mysql -pdb_pass123 -e 'use sat;select * from student'
+```
+
 ---
 
 ## 🧰 **Intermediate Docker Commands**
