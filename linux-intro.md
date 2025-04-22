@@ -60,6 +60,7 @@
 11. **`cat`** - Display file content.
     ```bash
     cat file.txt
+    cat >> file.txt  # Append content to a file;
     ```
 12. **`more`** - View file content page by page.
     ```bash
