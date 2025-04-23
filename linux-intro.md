@@ -61,6 +61,7 @@
     ```bash
     cat file.txt
     cat >> file.txt  # Append content to a file;
+    nano file.txt   #text editor
     ```
 12. **`more`** - View file content page by page.
     ```bash
