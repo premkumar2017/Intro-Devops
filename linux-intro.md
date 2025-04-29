@@ -37,13 +37,14 @@
    ```bash
    cp file.txt /path/to/destination
    cp -r dir1/ dir2/  # Copy directories recursively
-   mv filename foldername/  # Move a File Inside a Folder
-   mv filname ../ # Move out from folder  
 
    ```
 8. **`mv`** - Move or rename files or directories.
    ```bash
    mv file.txt /path/to/destination
+   mv filename ../../ Move up 2 levels
+   mv filename foldername/  # Move a File Inside a Folder
+   mv filname ../ # Move out from folder  
    mv oldname.txt newname.txt  # Rename a file
    ```
 9. **`rm`** - Remove files or directories.
