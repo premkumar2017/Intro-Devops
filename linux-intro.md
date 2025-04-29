@@ -37,6 +37,8 @@
    ```bash
    cp file.txt /path/to/destination
    cp -r dir1/ dir2/  # Copy directories recursively
+   mv filename foldername/  # Move a File Inside a Folder
+
    ```
 8. **`mv`** - Move or rename files or directories.
    ```bash
