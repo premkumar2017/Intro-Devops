@@ -35,6 +35,7 @@
    ```
 7. **`cp`** - Copy files or directories.
    ```bash
+   cp filename ../
    cp file.txt /path/to/destination
    cp -r dir1/ dir2/  # Copy directories recursively
 
