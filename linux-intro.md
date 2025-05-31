@@ -2,6 +2,8 @@
 ---
 
 ## **50 Linux Commands (Basic to Advanced)**
+![image](https://github.com/user-attachments/assets/b0221102-89ab-43c5-aae8-bff9ab15a0b4)
+
 
 ---
 
@@ -14,6 +16,7 @@
    ```bash
    ls -l  # Long listing
    ls -a  # Include hidden files
+   ls -lht      # List files with details, sorted by size (human-readable)
    ```
 3. **`cd`** - Change directory.
    ```bash
