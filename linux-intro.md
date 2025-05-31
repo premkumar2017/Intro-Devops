@@ -2,6 +2,7 @@
 ---
 
 ## **50 Linux Commands (Basic to Advanced)**
+![image](https://github.com/user-attachments/assets/d5f732b7-14ca-4941-8e5b-dca41fa62caf)
 
 ---
 
